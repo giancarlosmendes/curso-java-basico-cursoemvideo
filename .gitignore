@@ -1,0 +1,10 @@
+# .gitignore para NetBeans e Projetos Java
+**/nbproject/private/
+**/build/
+**/nbbuild/
+**/dist/
+**/nbdist/
+**/.nb-gradle/
+
+# Outros diretórios
+materiais
