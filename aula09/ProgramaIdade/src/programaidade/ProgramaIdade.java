@@ -7,6 +7,7 @@ public class ProgramaIdade {
 
     public static void main(String[] args) {
         
+        //ESTRUTURA CONDICIONAL COMPOSTA
         Scanner t = new Scanner(System.in);
         System.out.print("Em que ano você nasceu? ");
         int nasc = t.nextInt();
