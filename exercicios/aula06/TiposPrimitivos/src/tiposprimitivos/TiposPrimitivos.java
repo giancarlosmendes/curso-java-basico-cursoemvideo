@@ -1,27 +1,36 @@
 
 package tiposprimitivos;
 
-import java.util.Scanner;
-
 public class TiposPrimitivos {
 
     public static void main(String[] args) {
         
-        //TIPOS PRIMITIVOS e ENTRADA DE DADOS       
-        //String nome = "Gustavo"; //entrada de dados fixa (String)
-        //float nota = 8.5f; //entrada de dados fixa (float)
+        /* TIPOS PRIMITIVOS e CLASSES INVÓLUCRO        
+        Lógicos:
+        boolean ou Boolean -> Exemplo: true
         
-        Scanner teclado = new Scanner(System.in); //cria objeto para receber entrada de dados interativa
-        System.out.print("Digite o nome do aluno: ");
-        String nome = teclado.nextLine(); //entrada de dados interativa (String)
-        System.out.print("Digite a nota do aluno: ");
-        float nota = teclado.nextFloat(); //entrada de dados interativa (float)
+        Literais:
+        char ou Character -> Exemplo: 'A'
+        String -> Exemplo: "Java"
         
-        //SAÍDA DE DADOS
-        //System.out.print("A nota é " + nota); //print normal
-        //System.out.println("A nota é " + nota); //print e pula linha
-        //System.out.printf("A nota de %s é %.2f \n", nome, nota); //print formatado
-        System.out.format("A nota de %s é %.2f \n", nome, nota); //print formatado 2
+        Inteiros:
+        byte ou Byte -> Valor máximo: 127
+        short ou Short -> Valor máximo: 32767
+        int ou Integer -> Valor máximo: 2147483
+        long ou Long -> Valor máximo: 2⁶³
+        
+        Reais:
+        float ou Float -> Valor máximo: 3.4e⁺³⁸
+        double ou Double -> Valor máximo: 1.8e⁺³⁰⁸
+        */
+        
+        String nome = "Gustavo";
+        int idade = 15;
+        float nota = 8.5f;
+        
+        System.out.println("O nome do aluno é " + nome);
+        System.out.println("A idade do aluno é " + idade);
+        System.out.println("A nota do aluno é " + nota);
     }
     
 }
