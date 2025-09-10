@@ -1,4 +1,4 @@
-# .gitignore para NetBeans e Projetos Java
+# Diretórios NetBeans
 **/nbproject/private/
 **/build/
 **/nbbuild/
