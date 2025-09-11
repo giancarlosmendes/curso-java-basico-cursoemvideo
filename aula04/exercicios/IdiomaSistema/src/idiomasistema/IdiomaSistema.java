@@ -7,8 +7,9 @@ public class IdiomaSistema {
 
     public static void main(String[] args) {
         
-        Locale idioma = Locale.getDefault();
-        System.out.println("Seu sistema está em " + idioma.getDisplayLanguage());
+        Locale local = Locale.getDefault();
+        String idioma = local.getDisplayLanguage();
+        System.out.println("Seu sistema está em " + idioma);
         
     }
     
