@@ -5,6 +5,8 @@
  */
 package pacoteidade;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author User
@@ -33,16 +35,23 @@ public class TelaIdade extends javax.swing.JFrame {
         txtAno = new javax.swing.JTextField();
         btnCalc = new javax.swing.JButton();
         lblIdade = new javax.swing.JLabel();
-        lblSituacao = new javax.swing.JLabel();
+        lblSituacaoMaioridade = new javax.swing.JLabel();
+        lblSituacaoVoto = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Ano de Nascimento");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone-calendario.png"))); // NOI18N
+        jLabel1.setText("Ano de Nascimento:");
 
-        jLabel2.setText("Idade");
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone-idade.png"))); // NOI18N
+        jLabel2.setText("Idade:");
 
-        jLabel3.setText("Situação");
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone-info.png"))); // NOI18N
+        jLabel3.setText("Situação do Voto:");
 
+        btnCalc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone-calculadora.png"))); // NOI18N
         btnCalc.setText("Calcular Idade");
         btnCalc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -50,9 +59,23 @@ public class TelaIdade extends javax.swing.JFrame {
             }
         });
 
+        lblIdade.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblIdade.setForeground(new java.awt.Color(51, 102, 255));
         lblIdade.setText("0");
 
-        lblSituacao.setText("<vazio>");
+        lblSituacaoMaioridade.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblSituacaoMaioridade.setForeground(new java.awt.Color(51, 102, 255));
+        lblSituacaoMaioridade.setText("<vazio>");
+
+        lblSituacaoVoto.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblSituacaoVoto.setForeground(new java.awt.Color(51, 102, 255));
+        lblSituacaoVoto.setText("<vazio>");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setText("Verificador de Idade");
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icone+18.png"))); // NOI18N
+        jLabel5.setText("Maior de Idade?:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -61,43 +84,54 @@ public class TelaIdade extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblSituacao))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblIdade))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(27, 27, 27)
-                                .addComponent(txtAno, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(85, 85, 85)
+                        .addComponent(jLabel4))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addComponent(btnCalc)))
-                .addContainerGap(42, Short.MAX_VALUE))
+                        .addGap(90, 90, 90)
+                        .addComponent(btnCalc))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel2))
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblSituacaoVoto)
+                            .addComponent(lblSituacaoMaioridade)
+                            .addComponent(lblIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 59, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(txtAno, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addComponent(btnCalc)
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(lblIdade))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(lblIdade)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(lblSituacaoMaioridade)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel3)
-                    .addComponent(lblSituacao))
-                .addContainerGap(36, Short.MAX_VALUE))
+                    .addComponent(lblSituacaoVoto))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -105,17 +139,18 @@ public class TelaIdade extends javax.swing.JFrame {
 
     private void btnCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcActionPerformed
         
-        int ano = Integer.parseInt(txtAno.getText());
-        int idade = 2025 - ano;
+        int anoNasc = Integer.parseInt(txtAno.getText());
+        int anoAtual = LocalDate.now().getYear();        
+        int idade = anoAtual - anoNasc;
         lblIdade.setText(Integer.toString(idade));
-        /* Estrutura simples
-        String sit = (idade >= 18) ? "MAIOR" : "MENOR";
-        lblSituacao.setText(sit);
-        */
+        
+        //Estrutura simples
+        String situacaoMaioridade = (idade >= 18) ? "SIM" : "NÃO";
+        lblSituacaoMaioridade.setText(situacaoMaioridade);
         
         // Estrutura composta com ternário
-        String sit = ((idade >= 16 && idade < 18) || (idade > 70)) ? "É OPCIONAL" : "NÃO É OPCIONAL";
-        lblSituacao.setText(sit);
+        String situacaoVoto = ((idade >= 16 && idade < 18) || (idade > 70)) ? "É OPCIONAL" : "NÃO É OPCIONAL";
+        lblSituacaoVoto.setText(situacaoVoto);
         
     }//GEN-LAST:event_btnCalcActionPerformed
 
@@ -159,8 +194,11 @@ public class TelaIdade extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lblIdade;
-    private javax.swing.JLabel lblSituacao;
+    private javax.swing.JLabel lblSituacaoMaioridade;
+    private javax.swing.JLabel lblSituacaoVoto;
     private javax.swing.JTextField txtAno;
     // End of variables declaration//GEN-END:variables
 }

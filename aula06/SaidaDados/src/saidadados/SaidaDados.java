@@ -25,7 +25,7 @@ public class SaidaDados {
         Exemplos comuns:
             - %d: Para um número inteiro.
             - %f: Para um número de ponto flutuante (real), com controle de 
-                  casas decimais (ex: %.2f para duas casas).
+                  casas decimais (ex: %.2f para duas casas decimais ou %.0f para nenhuma casa decimal)
             - %s: Para uma string.
             - %n: Um separador de linha independente do sistema.
         */       

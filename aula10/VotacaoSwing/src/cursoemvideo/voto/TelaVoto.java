@@ -5,6 +5,8 @@
  */
 package cursoemvideo.voto;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author User
@@ -16,6 +18,7 @@ public class TelaVoto extends javax.swing.JFrame {
      */
     public TelaVoto() {
         initComponents();
+        painel.setVisible(false);
     }
 
     /**
@@ -30,14 +33,20 @@ public class TelaVoto extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtAno = new javax.swing.JTextField();
         btnVoto = new javax.swing.JButton();
-        lblR = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        painel = new javax.swing.JPanel();
+        lblResultado = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         lblIdade = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-calendario.png"))); // NOI18N
         jLabel1.setText("Ano de nascimento:");
 
+        btnVoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-voto.png"))); // NOI18N
         btnVoto.setText("Posso Votar?");
         btnVoto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -45,49 +54,90 @@ public class TelaVoto extends javax.swing.JFrame {
             }
         });
 
-        lblR.setText("Resultado");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("Verificador de Voto");
 
+        lblResultado.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblResultado.setForeground(new java.awt.Color(51, 102, 255));
+        lblResultado.setText("<vazio>");
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-idade.png"))); // NOI18N
         jLabel2.setText("Idade:");
 
+        lblIdade.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblIdade.setForeground(new java.awt.Color(51, 102, 255));
         lblIdade.setText("0");
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icon-info.png"))); // NOI18N
+        jLabel4.setText("Situação:");
+
+        javax.swing.GroupLayout painelLayout = new javax.swing.GroupLayout(painel);
+        painel.setLayout(painelLayout);
+        painelLayout.setHorizontalGroup(
+            painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+        painelLayout.setVerticalGroup(
+            painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(painelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(lblIdade))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(painelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(lblResultado))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtAno, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnVoto)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblR)))))
-                .addContainerGap(21, Short.MAX_VALUE))
+                                .addGap(60, 60, 60)
+                                .addComponent(btnVoto))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(63, 63, 63)
+                                .addComponent(jLabel3))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(22, 22, 22)
+                                .addComponent(jLabel1)
+                                .addGap(21, 21, 21)
+                                .addComponent(txtAno, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(painel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(7, 7, 7)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnVoto)
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblR)
-                    .addComponent(jLabel2)
-                    .addComponent(lblIdade))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addComponent(painel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -96,30 +146,32 @@ public class TelaVoto extends javax.swing.JFrame {
     private void btnVotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVotoActionPerformed
         
         //ESTRUTURA CONDICIONAL COMPOSTA ANINHADA
-        int a = Integer.parseInt(txtAno.getText());
-        int i = 2025 - a;
+        painel.setVisible(true);
+        int anoNasc = Integer.parseInt(txtAno.getText());
+        int anoAtual = LocalDate.now().getYear();
+        int idade = anoAtual - anoNasc;
         
-        lblIdade.setText(Integer.toString(i));
+        lblIdade.setText(Integer.toString(idade));
         
         /* opção 1
-        if (i < 16) {
-            lblR.setText("Não Vota!");
+        if (idade < 16) {
+            lblResultado.setText("Não Vota!");
         } else {
-            if ((i >= 16 && i < 18) || (i > 70)) {
-                lblR.setText("Voto Opcional");
+            if ((idade >= 16 && idade < 18) || (idade > 70)) {
+                lblResultado.setText("Voto Opcional!");
             } else {
-                lblR.setText("Voto Obrigatório!");
+                lblResultado.setText("Voto Obrigatório!");
             }
         }
         */
         
         //opção 2
-        if (i < 16) {
-            lblR.setText("Não Vota!");
-        } else if ((i >= 16 && i < 18) || (i > 70)) {
-            lblR.setText("Voto Opcional");
-        } else if (i > 70) {
-            lblR.setText("Voto Obrigatório!");
+        if (idade < 16) {
+            lblResultado.setText("Não Vota!");
+        } else if ((idade >= 16 && idade < 18) || (idade > 70)) {
+            lblResultado.setText("Voto Opcional!");
+        } else if (idade >=18 && idade <= 70) {
+            lblResultado.setText("Voto Obrigatório!");
         }
         
     }//GEN-LAST:event_btnVotoActionPerformed
@@ -163,8 +215,11 @@ public class TelaVoto extends javax.swing.JFrame {
     private javax.swing.JButton btnVoto;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblIdade;
-    private javax.swing.JLabel lblR;
+    private javax.swing.JLabel lblResultado;
+    private javax.swing.JPanel painel;
     private javax.swing.JTextField txtAno;
     // End of variables declaration//GEN-END:variables
 }
